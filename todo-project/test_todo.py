@@ -110,7 +110,7 @@ def test_list_tasks_order_preserved():
     assert result[1].startswith("[ ] 2")
     assert result[2].startswith("[ ] 3")
 
-#Tests how the system uses whitespace in list_tasks
+#Tests how the system uses whitespace in list_TASKS
 def test_list_tasks_trims_description():
     tasks = [Task(1, "  Hello  ", False)]
 
