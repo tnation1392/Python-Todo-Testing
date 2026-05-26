@@ -49,7 +49,7 @@ The app is split into 3 layers:
 
 ---
 
-## ▶️ Run the App
+## Run the App
 
 ```bash
 python cli.py
