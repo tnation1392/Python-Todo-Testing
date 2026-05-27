@@ -45,3 +45,18 @@ def test_full_flow(client):
 
     assert res2.status_code == 200
     assert any(t["completed"] for t in res3.json())
+
+
+@pytest.fixture(scope="module")
+def client():
+    server = threading.Thread(target=app.run, kwargs={"port": 5001})
+    server.daemon = True
+    server.start()
+
+    base_url = "http://127.0.0.1:5001"
+
+    yield base_url
+
+@pytest.fixture(autouse=True)
+def reset_api(client):
+    requests.post(f"{client}/reset")

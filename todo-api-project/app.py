@@ -50,6 +50,18 @@ def delete_task(task_id):
     tasks = new_tasks
     return jsonify({"message": "Deleted"})
 
+def reset_data():
+    global tasks, next_id
+    tasks = []
+    next_id = 1
+
+@app.route("/reset", methods=["POST"])
+def reset():
+    reset_data()
+    return jsonify({"message": "reset"}), 200
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+
 
